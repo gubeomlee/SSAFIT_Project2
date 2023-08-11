@@ -59,13 +59,96 @@ let videoList = [
 ];
 
 let video1 = document.getElementById("video1");
-videoList.forEach((video) => {
+let pre1 = document.getElementById("pre1");
+let next1 = document.getElementById("next1");
+let idx1 = 0;
+let video2 = document.getElementById("video2");
+let body = document.getElementById("body");
+let top1 = document.getElementById("top1");
+let bottom = document.getElementById("bottom");
+let abs = document.getElementById("abs");
+
+// 최근 가장 많이 본 영상
+for (let i = 0; i < videoList.length; i++) {
   let div = document.createElement("div");
+  div.setAttribute("class", "p-1");
+  div.setAttribute("display", "box");
+  if (i > 2) {
+    div.style.display = "none";
+  }
   video1.appendChild(div);
-  div.setAttribute("class", "carousel-item");
-  videoHtml += `
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/${video.id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  `;
+  let videoHtml = `
+    <iframe src="https://www.youtube.com/embed/${videoList[i].id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    `;
   div.innerHTML = videoHtml;
+}
+
+let child1 = document.querySelectorAll("#video1 div");
+
+let displayNone1 = (idx) => {
+  for (let i = 0; i < idx; i++) {
+    child1[i].style.display = "none";
+  }
+  for (let i = idx; i < idx + 3; i++) {
+    child1[i].style.display = "inline";
+  }
+  for (let i = idx + 3; i < videoList; i++) {
+    child1[i].style.display = "none";
+  }
+};
+
+pre1.addEventListener("click", () => {
+  if (idx1 > 0) {
+    idx1--;
+    displayNone1(idx1);
+  }
 });
-video1.firstElementChild.classList.add("active");
+
+next1.addEventListener("click", () => {
+  if (idx1 < videoList.length - 3) {
+    idx1++;
+    displayNone1(idx1);
+  }
+});
+
+// 운동 부위 선택
+for (let i = 0; i < videoList.length; i++) {
+  let div = document.createElement("div");
+  div.setAttribute("class", "p-1");
+  div.setAttribute("display", "box");
+  video2.appendChild(div);
+  let videoHtml = `
+            <iframe src="https://www.youtube.com/embed/${videoList[i].id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            `;
+  div.innerHTML = videoHtml;
+}
+
+let child2 = document.querySelectorAll("#video2 div");
+
+let displayType = (type) => {
+  for (let i = 0; i < videoList.length; i++) {
+    if (videoList[i].part != type) {
+      child2[i].style.display = "none";
+    } else {
+      child2[i].style.display = "block";
+    }
+  }
+};
+
+displayType("전신");
+
+body.addEventListener("click", () => {
+  displayType("전신");
+});
+
+top1.addEventListener("click", () => {
+  displayType("상체");
+});
+
+bottom.addEventListener("click", () => {
+  displayType("하체");
+});
+
+abs.addEventListener("click", () => {
+  displayType("복부");
+});
