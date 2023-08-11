@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <title>비디오 리스트</title>
+  </head>
+  <body>
+    <div id="video1" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner"></div>
+    </div>
+
+    <script>
+      let videoList = [
+        {
+          id: "gMaB-fG4u4g",
+          title: "전신 다이어트 최고의 운동 [칼소폭 찐 핵핵매운맛]",
+          part: "전신",
+          channelName: "ThankyouBUBU",
+          url: "https://www.youtube.com/embed/gMaB-fG4u4g",
+        },
+        // 다른 비디오 데이터도 추가
+      ];
+
+      let video1 = document.getElementById("video1");
+      let carouselInner = video1.querySelector(".carousel-inner");
+      let videoHtml = "";
+
+      videoList.forEach((video) => {
+        let div = document.createElement("div");
+        div.setAttribute("class", "carousel-item");
+        carouselInner.appendChild(div);
+
+        videoHtml = `
+      <iframe width="560" height="315" src="${video.url}?rel=0" title="${video.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    `;
+
+        div.innerHTML = videoHtml;
+      });
+
+      carouselInner.firstElementChild.classList.add("active");
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
