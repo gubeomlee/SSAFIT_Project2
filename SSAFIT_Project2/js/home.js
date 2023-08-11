@@ -92,14 +92,14 @@ let displayNone1 = (idx) => {
   for (let i = idx; i < idx + 3; i++) {
     child1[i].style.display = "inline";
   }
-  for (let i = idx + 3; i < videoList; i++) {
+  for (let i = idx + 3; i < videoList.length; i++) {
     child1[i].style.display = "none";
   }
 };
 
 pre1.addEventListener("click", () => {
   if (idx1 > 0) {
-    idx1--;
+    idx1 -= 1;
     displayNone1(idx1);
   }
 });
