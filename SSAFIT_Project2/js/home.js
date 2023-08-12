@@ -15,8 +15,7 @@ let videoList = [
   },
   {
     id: "54tTYO-vU2E",
-    title:
-      "상체 다이어트 최고의 운동 BEST [팔뚝살/겨드랑이살/등살/가슴어깨라인]",
+    title: "상체 다이어트 최고의 운동 BEST [팔뚝살/겨드랑이살/등살/가슴어깨라인]",
     part: "상체",
     channelName: "ThankyouBUBU",
     url: "https://www.youtube.com/embed/54tTYO-vU2E",
@@ -70,20 +69,33 @@ let abs = document.getElementById("abs");
 
 // 최근 가장 많이 본 영상
 for (let i = 0; i < videoList.length; i++) {
-  let div = document.createElement("div");
-  div.setAttribute("class", "p-1");
-  div.setAttribute("display", "box");
+  let divBox = document.createElement("div");
+  let div1 = document.createElement("div");
+  let div2 = document.createElement("div");
+  let span = document.createElement("span");
+
+  video1.appendChild(divBox);
+  divBox.appendChild(div1);
+  divBox.appendChild(div2);
+  divBox.appendChild(span);
+
+  divBox.setAttribute("class", "p-1");
+  divBox.setAttribute("display", "block");
   if (i > 2) {
-    div.style.display = "none";
+    divBox.style.display = "none";
   }
-  video1.appendChild(div);
   let videoHtml = `
     <iframe src="https://www.youtube.com/embed/${videoList[i].id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     `;
-  div.innerHTML = videoHtml;
+  div1.innerHTML = videoHtml;
+
+  div2.innerText = videoList[i].title;
+  div2.classList.add("videoTitle");
+
+  span.innerText = videoList[i].part;
 }
 
-let child1 = document.querySelectorAll("#video1 div");
+let child1 = document.querySelectorAll("#video1>div");
 
 let displayNone1 = (idx) => {
   for (let i = 0; i < idx; i++) {
@@ -113,17 +125,30 @@ next1.addEventListener("click", () => {
 
 // 운동 부위 선택
 for (let i = 0; i < videoList.length; i++) {
-  let div = document.createElement("div");
-  div.setAttribute("class", "p-1");
-  div.setAttribute("display", "box");
-  video2.appendChild(div);
+  let divBox = document.createElement("div");
+  let div1 = document.createElement("div");
+  let div2 = document.createElement("div");
+  let span = document.createElement("span");
+  video2.appendChild(divBox);
+  divBox.appendChild(div1);
+  divBox.appendChild(div2);
+  divBox.appendChild(span);
+
+  divBox.setAttribute("class", "p-1");
+  divBox.setAttribute("display", "block");
+
   let videoHtml = `
             <iframe src="https://www.youtube.com/embed/${videoList[i].id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             `;
-  div.innerHTML = videoHtml;
+  div1.innerHTML = videoHtml;
+
+  div2.innerText = videoList[i].title;
+  div2.classList.add("videoTitle");
+
+  span.innerText = videoList[i].part;
 }
 
-let child2 = document.querySelectorAll("#video2 div");
+let child2 = document.querySelectorAll("#video2>div");
 
 let displayType = (type) => {
   for (let i = 0; i < videoList.length; i++) {
@@ -151,4 +176,12 @@ bottom.addEventListener("click", () => {
 
 abs.addEventListener("click", () => {
   displayType("복부");
+});
+
+let videoTitle = document.querySelectorAll(".videoTitle");
+
+videoTitle.forEach((title) => {
+  title.addEventListener("click", () => {
+    window.open("http://127.0.0.1:5500/SSAFIT_Project2/html/review/reviewMain.html", "_self");
+  });
 });

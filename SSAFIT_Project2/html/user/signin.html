@@ -4,45 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
   </head>
+  <script>
+    let closeWindow = () => {
+      window.close;
+      console.log(1);
+    };
+  </script>
   <body>
     <main>
       <div class="d-flex justify-content-center">회원가입</div>
       <form action="#">
-        <div
-          class="d-flex justify-content-center p-3 bg-body-tertiary rounded flex-column"
-        >
-          <input type="text" placeholder="아이디" class="w-auto form-control" />
-          <input type="text" placeholder="이름" class="w-auto form-control" />
-          <input type="text" placeholder="이메일" class="w-auto form-control" />
-          <input
-            type="text"
-            placeholder="비밀번호"
-            class="w-auto form-control"
-          />
-          <input
-            type="text"
-            placeholder="비밀번호 확인"
-            class="w-auto form-control"
-          />
+        <div class="d-flex justify-content-center p-3 bg-body-tertiary rounded flex-column">
+          <input type="text" placeholder="아이디" class="w-auto form-control m-1" />
+          <input type="text" placeholder="이름" class="w-auto form-control m-1" />
+          <input type="text" placeholder="이메일" class="w-auto form-control m-1" />
+          <input type="text" placeholder="비밀번호" class="w-auto form-control m-1" />
+          <input type="text" placeholder="비밀번호 확인" class="w-auto form-control m-1" />
         </div>
         <div class="nav justify-content-center p-3 bg-body-tertiary rounded">
-          <button type="button" class="btn btn-outline-primary">가입</button>
-          <button type="button" class="btn btn-outline-danger">취소</button>
+          <button class="btn btn-outline-primary m-2" onclick="window.close()">가입</button>
+          <button class="btn btn-outline-danger m-2" onclick="window.close()">취소</button>
         </div>
       </form>
     </main>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>

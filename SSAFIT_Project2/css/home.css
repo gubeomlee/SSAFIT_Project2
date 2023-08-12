@@ -1,0 +1,16 @@
+.myPage,
+.logout {
+  display: none;
+}
+
+.topImg {
+  height: 200px;
+  width: 1100px;
+}
+
+.videoTitle {
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
