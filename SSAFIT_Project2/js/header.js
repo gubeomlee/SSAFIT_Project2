@@ -26,3 +26,7 @@ logout.addEventListener("click", () => {
   signIn.style.display = "inline";
   login.style.display = "inline";
 });
+
+myPage.addEventListener("click", () => {
+  window.open("http://127.0.0.1:5500/SSAFIT_Project2/html/mypage/myPage.html");
+});
